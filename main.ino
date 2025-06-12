@@ -9,6 +9,8 @@ Adafruit_IS31FL3731 matrix = Adafruit_IS31FL3731();
 #define BPhase 7
 #define BEnable 5 //enable is anologe
 #define AEnable 6
+
+//light and water sensor pins
 #define watersen A2
 #define L1 A3
 #define L2 A1
@@ -21,6 +23,7 @@ bool movebool = true;
 
 void setup() {
 
+  //front bumpers
   pinMode(2, INPUT_PULLUP);
   pinMode(3, INPUT_PULLUP);
 
@@ -38,6 +41,7 @@ matrix.setTextWrap(false);
 
 void loop() {
 
+  //light sensor prints for debugging
   Serial.print("L1: ");
   Serial.print(analogRead(L1));
   Serial.print("\n");
@@ -45,7 +49,7 @@ void loop() {
   Serial.print(analogRead(L2));
   Serial.print("\n");
 
-  //bumpers in the front
+  // one of the bumpers in the front
   if (digitalRead(2) == LOW){
     movebool = false;
     backleft();
@@ -130,7 +134,7 @@ float percentlight(int l1, int l2) {
 void backleft() {
   unsigned long backmillis = millis();
 
-  while (millis() - backmillis < 2000)
+  while (millis() - backmillis < 1300)
   {
     digitalWrite(APhase, HIGH);
     digitalWrite(BPhase, HIGH);
@@ -140,7 +144,7 @@ void backleft() {
 
     backmillis = millis();
 
-  while (millis() - backmillis < 800)
+  while (millis() - backmillis < 500)
   {
     digitalWrite(APhase, HIGH);
     digitalWrite(BPhase, LOW);

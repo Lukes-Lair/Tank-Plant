@@ -1,1 +1,2 @@
 Ok, so im kinda stupid and need help with this code. If you can help, thanks!
+right now the bot will only run the motor with the higher light value on its side. also it acts like the front bumper gets hit a lot.
