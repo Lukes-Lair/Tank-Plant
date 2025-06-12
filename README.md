@@ -1,0 +1,1 @@
+Ok, so im kinda stupid and need help with this code. If you can help, thanks!
